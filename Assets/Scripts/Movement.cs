@@ -26,9 +26,11 @@ public class Movement : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
 
         controller.Move(move * speed * Time.deltaTime);
+
 
         Velocity.y += gravity * Time.deltaTime;
         controller.Move(Velocity * Time.deltaTime);

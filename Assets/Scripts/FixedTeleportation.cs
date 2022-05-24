@@ -15,9 +15,8 @@ public class FixedTeleportation : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Debug.Log(Player.transform.position);
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray , out hit , Mathf.Infinity , Teleportable))

@@ -16,10 +16,12 @@ public class MouseLook : MonoBehaviour
     {
         float mousex = Input.GetAxis("Mouse X")*sensitivity*Time.deltaTime;
         float mousey = Input.GetAxis("Mouse Y")*sensitivity*Time.deltaTime;
-
-        xRotation -= mousey;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        Player.Rotate(Vector3.up * mousex);
+        if (mousex != 0 || mousey != 0)
+        {
+            xRotation -= mousey;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
+            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            Player.Rotate(Vector3.up * mousex);
+        }
     }
 }

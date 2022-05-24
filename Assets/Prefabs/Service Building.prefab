@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6910885085392644642}
   - component: {fileID: 4543102662268837536}
   - component: {fileID: 843627285799653746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 8778670673451110258}
   - component: {fileID: 5245784926537311756}
   - component: {fileID: 8830613305316249272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: service_building_1_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1648091702497880397}
   - component: {fileID: 6990422450542436515}
   - component: {fileID: 8830613304442048661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: service_building_1_.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9008920535301867282}
-  m_Layer: 0
+  - component: {fileID: 9049987290301707623}
+  m_Layer: 7
   m_Name: Service Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,3 +346,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &9049987290301707623
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8524695972697316776}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 0.5, z: 3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.1, y: 0, z: -0.99}
+  m_TimeToStationary: 0.5

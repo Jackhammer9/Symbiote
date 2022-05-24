@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7963139632914540584}
   - component: {fileID: 8295072693129735322}
   - component: {fileID: 5920182234147363031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar_)))_radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6740953549836361564}
   - component: {fileID: 6736804812701385691}
   - component: {fileID: 1950333389920284838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar_)))_radar.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3461299735728158982}
   - component: {fileID: 784038722419264542}
   - component: {fileID: 1536574263621327709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar_building_.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 2979750468690980482}
   - component: {fileID: 7470263110135936701}
   - component: {fileID: 1460306515759404918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar_building_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 3493226604074757074}
   - component: {fileID: 3631433789246511375}
   - component: {fileID: 7152910954916446035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Radar_building_.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8829441656551361627}
-  m_Layer: 0
+  - component: {fileID: -2594252317291818819}
+  m_Layer: 7
   m_Name: Radar_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,6 +528,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &-2594252317291818819
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197583537301853921}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 2, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8463369099832350141
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +556,7 @@ GameObject:
   - component: {fileID: 8169906633127024057}
   - component: {fileID: 5685919834512420252}
   - component: {fileID: 4915705726075529900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Engine_=__radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
