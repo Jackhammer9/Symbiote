@@ -1,28 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
         if (currentHealth <= 0)
         {
-            Die();
+            FindObjectOfType<Score>().AddScore(Random.Range(10, 20));
+            currentHealth = maxHealth;
+            FindObjectOfType<SoldierSpawner>().Revive(gameObject);
         }
-    }
-
-    void Die()
-    {
-        
     }
 }

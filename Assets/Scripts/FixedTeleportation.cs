@@ -5,7 +5,7 @@ public class FixedTeleportation : MonoBehaviour
     Camera cam;
     TeleportationSpot spot;
     public LayerMask Teleportable;
-    GameObject Player;
+    [HideInInspector] public GameObject Player;
 
     void Start()
     {

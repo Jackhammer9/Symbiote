@@ -31,4 +31,15 @@ public class SoldierSpawner : MonoBehaviour
             Instantiate(SoldierPrefab, position, Quaternion.identity , transform);
         }
     }
+
+    public void Revive(GameObject Soldier)
+    {
+        Vector3 position = new Vector3(Random.Range(-190, 190), 0, Random.Range(-190, 190));
+        while (!CheckPosition(position))
+        {
+            position = new Vector3(Random.Range(-190, 190), 0, Random.Range(-190, 190));
+        }
+        Soldier.transform.position = position;
+        Soldier.SetActive(true);
+    }
 }

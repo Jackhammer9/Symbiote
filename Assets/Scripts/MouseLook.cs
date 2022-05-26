@@ -3,7 +3,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public float sensitivity = 100;
-    Transform Player;
+    [HideInInspector] public Transform Player;
     float xRotation;
     void Start()
     {
