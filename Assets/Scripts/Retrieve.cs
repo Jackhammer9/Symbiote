@@ -6,10 +6,13 @@ public class Retrieve : MonoBehaviour
     public GameObject Player;
     public TextMeshProUGUI Hint;
     public bool isPossessing;
+    public TextMeshProUGUI SeverityText;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            FindObjectOfType<Suspicion>().ResetSeverity();
+            SeverityText.enabled = false;
             Hint.text = "F";
             Hint.gameObject.SetActive(false);
             Player.SetActive(true);

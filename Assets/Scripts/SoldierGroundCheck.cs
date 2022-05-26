@@ -8,12 +8,13 @@ public class SoldierGroundCheck : MonoBehaviour
     public LayerMask PlayerLayer;
     private GameObject Player;
     private NavMeshAgent nav;
+    public LayerMask HostLayer;
 
-    public int damage = 10;
-    public float ShootTime = 3f;
+    public int damage = 6;
+    public float ShootTime = 1f;
 
     private Animator anim;
-
+    [HideInInspector] public GameObject Host;
     public GameObject Muzzle;
 
     void Start(){
@@ -41,7 +42,7 @@ public class SoldierGroundCheck : MonoBehaviour
                 if (ShootTime <= 0)
                 {
                     Player.GetComponent<PlayerHealth>().TakeDamage(damage);
-                    ShootTime = 3f;
+                    ShootTime = 1f;
                 }
                 else
                 {
@@ -52,6 +53,33 @@ public class SoldierGroundCheck : MonoBehaviour
                 anim.SetBool("isShooting", false);
                 Muzzle.SetActive(false);
                 nav.isStopped = false;
+            }
+
+            if (FindObjectOfType<Suspicion>().isDetected)
+            {
+                Host = GameObject.FindGameObjectWithTag("Player");
+                if (Physics.CheckSphere(groundCheck.position, radius, HostLayer))
+                {
+                    Muzzle.SetActive(true);
+                    anim.SetBool("isShooting", true);
+                    nav.isStopped = true;
+                    transform.LookAt(Host.transform);
+                    if (ShootTime <= 0)
+                    {
+                        Host.GetComponent<HostHealth>().TakeDamage(damage);
+                        ShootTime = 1f;
+                    }
+                    else
+                    {
+                        ShootTime -= Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    anim.SetBool("isShooting", false);
+                    Muzzle.SetActive(false);
+                    nav.isStopped = false;
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Lifetime : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Lifetime : MonoBehaviour
     private float Timer;
     private float HealthGained;
     private float StartTime;
+    public GameObject ScoreBoard;
+    public TextMeshProUGUI ScoreText;
 
     void Start()
     {
@@ -45,6 +48,11 @@ public class Lifetime : MonoBehaviour
         TimerText.text = Timer.ToString("F0");
         Timer -= Time.deltaTime;
 
+        if (Timer <= 0)
+        {
+            Die();
+        }
+
         if (isPossessing)
         {
             HealthGained = StartTime - Timer;
@@ -61,5 +69,23 @@ public class Lifetime : MonoBehaviour
     public void TakeDamage(float damage)
     {
       Timer -= damage;
+    }
+
+    void Die()
+    {
+        int HighScore = PlayerPrefs.GetInt("HighScore");
+        int score = FindObjectOfType<Score>().score;
+        if (score > HighScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
+        ScoreText.text = "Game Over!\nScore: " + score + "\nHigh Score: " + HighScore;
+        Time.timeScale = 0;
+        ScoreBoard.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

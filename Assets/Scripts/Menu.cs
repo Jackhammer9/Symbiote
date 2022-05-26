@@ -12,9 +12,11 @@ public class Menu : MonoBehaviour
     public GameObject GuidePanel;
     private int count;
     public GameObject ControlPanel;
+    public TextMeshProUGUI HighScore;
 
     void Start()
     {
+        HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore").ToString();
         if (PlayerPrefs.HasKey("Muted"))
         {
             if (PlayerPrefs.GetInt("Muted") == 1)

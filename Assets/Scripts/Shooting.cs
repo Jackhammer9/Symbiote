@@ -15,6 +15,12 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            int random = Random.Range(1, 11);
+            if (random % 2 == 0 || random % 3 == 0)
+            {
+                int RandomSeverity = Random.Range(1, 4);
+                FindObjectOfType<Suspicion>().IncreaseSeverity(RandomSeverity);
+            }
             flash.SetActive(true);
             anim.SetBool("isShooting" , true);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -14,6 +14,7 @@ public class Possesion : MonoBehaviour
     
     private GameObject Target;
     public TextMeshProUGUI Hint;
+    public TextMeshProUGUI SeverityText;
 
     void OnDrawGizmosSelected()
     {
@@ -32,11 +33,34 @@ public class Possesion : MonoBehaviour
         if (Physics.CheckSphere(transform.position, possesion_radius, layer))
         {
             UI.SetActive(true);
+
+            SeverityText.enabled = true;
             Collider[] targets = Physics.OverlapSphere(transform.position, possesion_radius, layer);
             Target = targets[0].gameObject;
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Collider[] SusTargets = Physics.OverlapSphere(transform.position, small_radius, layer);
+                if (SusTargets.Length > 1)
+                {
+                    FindObjectOfType<Suspicion>().IncreaseSeverity(3);
+                }
+                else
+                {
+                    Collider[] MidTargets = Physics.OverlapSphere(transform.position, mid_radius, layer);
+                    if (MidTargets.Length > 1)
+                    {
+                        FindObjectOfType<Suspicion>().IncreaseSeverity(2);
+                    }
+                    else
+                    {
+                        Collider[] BigTargets = Physics.OverlapSphere(transform.position, big_radius, layer);
+                        if (BigTargets.Length > 1)
+                        {
+                            FindObjectOfType<Suspicion>().IncreaseSeverity(1);
+                        }
+                    }
+                }
                 Hint.text = "R";
                 isPossessing = true;
                 Host.SetActive(true);
